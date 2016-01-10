@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 首页Viewpager选中颜色 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:color="@color/red_font"/>
+    <item android:state_checked="false" android:color="@color/black_font"/>
+</selector>

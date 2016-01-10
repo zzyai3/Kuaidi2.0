@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="register_phonenum" type="id" />
+    <item name="et_register_passwd" type="id" />
+    <item name="et_register_passcheck" type="id" />
+    <item name="register_yanzheng" type="id" />
+    <item name="et_register_yanzheng" type="id" />
+</resources>
