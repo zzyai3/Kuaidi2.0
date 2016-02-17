@@ -109,6 +109,30 @@
             android:text="获取验证码"/>
 
     </LinearLayout>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rg"
+        android:layout_marginLeft="30dp"
+        android:padding="10dp"
+        >
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/r_shopping_button"
+            android:text="顾客"
+            android:textColor="@color/black"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/r_song_button"
+            android:text="快递员"
+            android:textColor="@color/black"/>
+
+    </RadioGroup>
     <Button
         android:id="@+id/bt_regist_regist"
         android:layout_width="wrap_content"
