@@ -35,7 +35,7 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);//去除原来标题栏
         setContentView(R.layout.activity_login);
-        ButterKnife.bind(this);
+     //   ButterKnife.bind(this);
        et_lg_phonenum=(EditText)findViewById(R.id.et_lg_phonenum);
        et_lg_passwd=(EditText)findViewById(R.id.et_lg_passwd);
        btn_lg_regster=(Button)findViewById(R.id.btn_lg_register);
