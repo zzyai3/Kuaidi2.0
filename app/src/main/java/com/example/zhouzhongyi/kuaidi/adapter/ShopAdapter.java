@@ -3,6 +3,7 @@ package com.example.zhouzhongyi.kuaidi.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.zhouzhongyi.kuaidi.R;
+import com.example.zhouzhongyi.kuaidi.activity.MainActivity;
 import com.example.zhouzhongyi.kuaidi.activity.ShoppingmoreActivity;
 
 import butterknife.Bind;
@@ -23,6 +25,7 @@ import butterknife.OnClick;
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHolder> {
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
+    private CardView cardView;
     private String[] jiage;
     private String[] num;
     private String[] price;
@@ -51,7 +54,14 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
         holder.mTextView5.setText(price[position]);
         holder.mTextView6.setText(jiage[position]);
         holder.mTextView7.setText(num[position]);
-
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mContext,ShoppingmoreActivity.class);
+               // intent.putExtra("News",newses.get(j));
+               mContext .startActivity(intent);
+            }
+        });
 
     }
 
@@ -67,6 +77,9 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
         TextView mTextView2;
         @Bind(R.id.sp_view3)
         TextView mTextView3;
+        @Bind(R.id.cv_item)
+        CardView cardView;
+
 
         @Bind(R.id.sp_view5)
         TextView mTextView5;
@@ -86,7 +99,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
         void onItemClick() {
          //   DemoItem item = DemoItem.fromCursor((Cursor) mAdapter.getItem(getPosition()));
 
-            Intent intent = new Intent(ShopAdapter.this,ShoppingmoreActivity.class);
+         //   Intent intent = new Intent(,ShoppingmoreActivity.class);
 
 
             Log.d("NormalTextViewHolder", "onClick--> position = " + getPosition());
