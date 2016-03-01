@@ -1,6 +1,8 @@
 package com.example.zhouzhongyi.kuaidi.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.zhouzhongyi.kuaidi.R;
+import com.example.zhouzhongyi.kuaidi.activity.ShoppingmoreActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,11 +37,13 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
 
     @Override
     public ShopTextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         return new ShopTextViewHolder(mLayoutInflater.inflate(R.layout.shopping_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(ShopTextViewHolder holder, int position) {
+     //   DemoItem item = DemoItem.fromCursor(cursor);
         holder.mTextView.setText("商品:");
         holder.mTextView2.setText("价格:");
         holder.mTextView3.setText("库存:");
@@ -79,6 +84,11 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
 
         @OnClick(R.id.cv_item)
         void onItemClick() {
+         //   DemoItem item = DemoItem.fromCursor((Cursor) mAdapter.getItem(getPosition()));
+
+            Intent intent = new Intent(ShopAdapter.this,ShoppingmoreActivity.class);
+
+
             Log.d("NormalTextViewHolder", "onClick--> position = " + getPosition());
         }
     }
