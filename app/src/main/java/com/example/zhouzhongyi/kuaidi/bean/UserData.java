@@ -7,48 +7,24 @@ import cn.bmob.v3.BmobUser;
  */
 public class UserData extends BmobUser {
     private static final long serialVersionUID = 1L;
-    private String userPersonName;
     private int usertype;
-    private String userPassword;
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public String getUserPassword() {
-
-        return userPassword;
-    }
-
-    public void setUsertype(int usertype) {
-        this.usertype = usertype;
-    }
 
     public int getUsertype() {
-
         return usertype;
     }
 
-    public UserData(int usertype) {
-
-        this.usertype = usertype;
+    public UserData() {
     }
 
-    public UserData() {};
-
-    public UserData(String userPersonName) {
-        this.userPersonName = userPersonName;
+    public UserData(int usertype) {
+        this.usertype = usertype;
     }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    public String getUserPersonName() {
-        return userPersonName;
-    }
-
-    public void setUserPersonName(String userPersonName) {
-        this.userPersonName = userPersonName;
+    public void setUsertype(int usertype) {
+        this.usertype = usertype;
     }
 }

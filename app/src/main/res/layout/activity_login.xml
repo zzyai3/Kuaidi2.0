@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+
             android:hint="用户名/手机号"
             android:inputType="phone"
             android:textColor="@color/white"
@@ -41,6 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:inputType="textPassword"
             android:hint="密码"
             android:textColorHint="@color/white"/>
     </LinearLayout>

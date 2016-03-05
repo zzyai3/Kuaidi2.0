@@ -22,9 +22,11 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.zhouzhongyi.kuaidi.R;
 import com.example.zhouzhongyi.kuaidi.adapter.Main_ViewPagerAdapter;
+import com.example.zhouzhongyi.kuaidi.bean.Goodsbean;
 import com.example.zhouzhongyi.kuaidi.fragment.Main_rb_1Fragment;
 import com.example.zhouzhongyi.kuaidi.fragment.Main_rb_2Fragment;
 import com.example.zhouzhongyi.kuaidi.fragment.Main_rb_3Fragment;
@@ -34,8 +36,11 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.FindListener;
 
 /**
  * Created by zhouzhongyi on 16/1/10.
@@ -68,6 +73,28 @@ public class ShoppingActivity extends AppCompatActivity {
             setContentView(R.layout.activity_shopping);
             ButterKnife.bind(this);
             mToolbar = (Toolbar) findViewById(R.id.toolbar);
+            BmobQuery<Goodsbean> query = new BmobQuery<Goodsbean>();
+//执行查询方法
+            query.findObjects(this, new FindListener<Goodsbean>() {
+                @Override
+                public void onSuccess(List<Goodsbean> object) {
+                    // TODO Auto-generated method stub
+                    //   Toast.makeText("查询成功：共"+object.size()+"条数据。").show();
+                    for (Goodsbean goodsbean : object) {
+                        //获得playerName的信息
+                        goodsbean.getGoodsname();
+                        goodsbean.getGoodsnum();
+                        goodsbean.getGoodsprice();
+                        //获得数据的objectId信息
+                        Toast.makeText(ShoppingActivity.this,goodsbean.getGoodsname()+goodsbean.getGoodsprice()+goodsbean.getGoodsnum(),Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+                @Override
+                public void onError(int code, String msg) {
+
+                }
+            });
 //            setSupportActionBar(mToolbar);
 //        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar,R.string.drawer_open,

@@ -10,17 +10,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.zhouzhongyi.kuaidi.R;
 import com.example.zhouzhongyi.kuaidi.activity.MainActivity;
+import com.example.zhouzhongyi.kuaidi.activity.ShoppingActivity;
 import com.example.zhouzhongyi.kuaidi.activity.ShoppingmoreActivity;
+import com.example.zhouzhongyi.kuaidi.bean.Goodsbean;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.FindListener;
 
 /**
  * Created by zhouzhongyi on 16/1/10.
+ * 顾客购物适配器
  */
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHolder> {
     private final LayoutInflater mLayoutInflater;
@@ -31,6 +39,19 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
     private String[] price;
 
     public ShopAdapter(Context context) {
+
+
+
+
+
+
+
+
+
+
+
+
+
         jiage = context.getResources().getStringArray(R.array.jiage);
         num = context.getResources().getStringArray(R.array.num);
         price = context.getResources().getStringArray(R.array.prices);

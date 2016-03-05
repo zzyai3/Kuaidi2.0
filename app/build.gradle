@@ -39,7 +39,8 @@ dependencies {
     compile files('libs/MobTools-2016.0131.1739.jar')
     compile name: 'SMSSDK-2.0.1', ext: 'aar'
     compile name: 'SMSSDKGUI-2.0.1', ext: 'aar'
-    compile files('libs/BmobSDK_V3.4.5_1111.jar')
-    compile files('libs/Bmob_Push_V0.7beta_20160229.jar')
     compile files('libs/okhttp-2.4.0.jar')
+    compile files('libs/okio-1.4.0.jar')
+    compile files('libs/Bmob_Push_V0.6beta_20150408.jar')
+    compile files('libs/BmobSDK_V3.4.5_1111.jar')
 }

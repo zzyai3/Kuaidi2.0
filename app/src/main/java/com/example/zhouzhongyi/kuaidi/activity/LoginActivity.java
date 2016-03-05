@@ -17,8 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zhouzhongyi.kuaidi.R;
+import com.example.zhouzhongyi.kuaidi.bean.UserData;
 
 import butterknife.ButterKnife;
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobInstallation;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.listener.SaveListener;
 
 /**
  * Created by zhouzhongyi on 15/12/24.
@@ -36,6 +41,10 @@ public class LoginActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);//去除原来标题栏
         setContentView(R.layout.activity_login);
      //   ButterKnife.bind(this);
+        //初始化
+        Bmob.initialize(this,"538cf6944746a4f0eb8553aac96fda48");
+        //推送服务
+//        BmobInstallation.getCurrentInstallation(this).save();
        et_lg_phonenum=(EditText)findViewById(R.id.et_lg_phonenum);
        et_lg_passwd=(EditText)findViewById(R.id.et_lg_passwd);
        btn_lg_regster=(Button)findViewById(R.id.btn_lg_register);
@@ -54,21 +63,43 @@ public class LoginActivity extends Activity {
                                                  .toString();
                                          if (!name.equals("")) {
                                              if (!password.equals("")) {
-                                                  if (shopbutton.isChecked()) {
-                                                 Intent intent = new Intent();
-                                                 intent.setClass(LoginActivity.this, ShoppingActivity.class);
-                                                 LoginActivity.this.startActivity(intent);
-                                                   }else {if (songbutton.isChecked()){
-                                                      Intent intent = new Intent();
-                                                      intent.setClass(LoginActivity.this, MainActivity.class);
-                                                      LoginActivity.this.startActivity(intent);
-                                                  }
+//                                                  if (shopbutton.isChecked()) {
+//                                                      //验证顾客登陆跳转
+//                                                      UserData userData = BmobUser.getCurrentUser(LoginActivity.this,UserData.class);
+//                                                      if (userData!= null ){
+//                                                          Intent intent = new Intent();
+//                                                          intent.setClass(LoginActivity.this, ShoppingActivity.class);
+//                                                          LoginActivity.this.startActivity(intent);
+//                                                      }else {
+//                                                          Toast.makeText(LoginActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
+//                                                      }
+//
+//                                                   }else {if (songbutton.isChecked()){
+//                                                      //验证送货员登陆跳转
+//
+//                                                      UserData userData = BmobUser.getCurrentUser(LoginActivity.this,UserData.class);
+//                                                      if (userData!= null ){
+//                                                          Intent intent = new Intent();
+//                                                          intent.setClass(LoginActivity.this, MainActivity.class);
+//                                                          LoginActivity.this.startActivity(intent);
+//
+//
+//                                                      }else {
+//                                                          Toast.makeText(LoginActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
+//
+//                                                      }
+//
+//
+//
+//
+//                                                  }
 
-                                                  }
+                                                //  }
                                                  //   else{
                                                  //       Toast.makeText(LoginActivity.this, "请同意协议",
                                                  //             Toast.LENGTH_SHORT).show();
                                                  //   }
+                                                 login();
                                              } else {
                                                  Toast.makeText(LoginActivity.this, "请输入密码",
                                                          Toast.LENGTH_SHORT).show();
@@ -180,5 +211,46 @@ public class LoginActivity extends Activity {
 //        }
 //        return false;
 //    }
+
+
+    public void login(){
+        final String username = this.et_lg_phonenum.getText().toString();
+        final String userpassword = this.et_lg_passwd.getText().toString();
+        final BmobUser user = new BmobUser();
+        user.setUsername(username);
+        user.setPassword(userpassword);
+        user.login(LoginActivity.this, new SaveListener() {
+            @Override
+            public void onSuccess() {
+                UserData userData = BmobUser.getCurrentUser(LoginActivity.this,UserData.class);
+
+                if (userData!= null ){
+                    if (userData.getUsertype()==1){
+                        Intent intent = new Intent();
+                        intent.setClass(LoginActivity.this, ShoppingActivity.class);
+                        LoginActivity.this.startActivity(intent);
+                    }else if (userData.getUsertype()==2){
+
+                            Intent intent = new Intent();
+                            intent.setClass(LoginActivity.this, MainActivity.class);
+                            LoginActivity.this.startActivity(intent);
+                    }
+
+
+
+
+                }else {
+                    Toast.makeText(LoginActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(int i, String s) {
+                Toast.makeText(LoginActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
 }
