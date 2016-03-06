@@ -15,6 +15,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by zhouzhongyi on 16/2/27.
+ * 下单成功页面
  */
 public class CheckdoneActivity extends AppCompatActivity {
     private Button bt_back;

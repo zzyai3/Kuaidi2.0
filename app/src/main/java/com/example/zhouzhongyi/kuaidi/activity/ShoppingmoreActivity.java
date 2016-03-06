@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by zhouzhongyi on 16/2/19.
+ * 下单页面
  */
 public class ShoppingmoreActivity extends AppCompatActivity {
     private TextView tv_shopid;

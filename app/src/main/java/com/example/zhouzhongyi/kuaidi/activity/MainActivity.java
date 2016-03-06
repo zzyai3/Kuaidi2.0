@@ -18,11 +18,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
-import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import com.example.zhouzhongyi.kuaidi.R;
 import com.example.zhouzhongyi.kuaidi.adapter.Center_FragmentAdapter;
@@ -51,12 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;//控制页面切换控件
     private ArrayList<Fragment> fragmentList;//需要切换的页面
     private Main_ViewPagerAdapter adapter = null;//适配器
-    private Bitmap cursor;//centerbottom的Bitmap格式
-    private int currentItem;// 当前页卡编号
-    private Animation animation;//centerbottom图片切换动画
-    private ImageView iv_centerBottom;//动画图片
-    private int offSet;// 动画图片偏移量
-    private int bmWidth;//图片宽度
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.

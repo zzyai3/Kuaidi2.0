@@ -43,24 +43,10 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
 
 
 
-
-
-
-
-
-
-
-
-
-
-        //jiage = context.getResources().getStringArray(R.array.jiage);
-//        num = context.getResources().getStringArray(R.array.num);
-//        jiage = context.getResources().getStringArray(R.array.jiage);
-
         goodsname = ShoppingbeanHelper.goodsname.toArray(new String[]{});
         num = ShoppingbeanHelper.goodsnum.toArray(new String[]{});
         jiage = ShoppingbeanHelper.goodsprice.toArray(new String[]{});
-
+//测试
         for (String aa  : goodsname) {
 
             System.err.println("aAAAAAAAAA       ----->" + aa);
@@ -106,6 +92,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(mContext,ShoppingmoreActivity.class);
+
                // intent.putExtra("News",newses.get(j));
                mContext .startActivity(intent);
             }
