@@ -7,35 +7,30 @@ import cn.bmob.v3.BmobObject;
  */
 public class Goodsbean extends BmobObject{
     private String goodsname;
-    private Double goodsnum;
-    private Double goodsprice;
+    private String goodsnum;
+    private String goodsprice;
 
     public void setGoodsname(String goodsname) {
         this.goodsname = goodsname;
     }
 
-    public void setGoodsnum(Double goodsnum) {
+    public void setGoodsnum(String goodsnum) {
         this.goodsnum = goodsnum;
     }
 
-    public void setGoodsprice(Double goodsprice) {
+    public void setGoodsprice(String goodsprice) {
         this.goodsprice = goodsprice;
     }
 
     public String getGoodsname() {
-
         return goodsname;
     }
 
-    public Double getGoodsnum() {
+    public String getGoodsnum() {
         return goodsnum;
     }
 
-    public Double getGoodsprice() {
+    public String getGoodsprice() {
         return goodsprice;
-    }
-
-    public Goodsbean() {
-
     }
 }

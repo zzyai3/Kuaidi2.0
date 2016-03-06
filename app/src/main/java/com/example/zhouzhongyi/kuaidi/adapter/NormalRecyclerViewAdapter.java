@@ -22,13 +22,13 @@ public class NormalRecyclerViewAdapter extends RecyclerView.Adapter<NormalRecycl
     private String[] mTitles1;
     private String[] phones;
     private String[] adreese;
-    private String[] price;
+    private String[] goodsname;
 
     public NormalRecyclerViewAdapter(Context context) {
         mTitles1 = context.getResources().getStringArray(R.array.titles);
         phones = context.getResources().getStringArray(R.array.phones);
         adreese = context.getResources().getStringArray(R.array.adresses);
-        price = context.getResources().getStringArray(R.array.prices);
+        goodsname = context.getResources().getStringArray(R.array.goodsname);
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
     }
@@ -47,7 +47,7 @@ public class NormalRecyclerViewAdapter extends RecyclerView.Adapter<NormalRecycl
         holder.mTextView5.setText(mTitles1[position]);
         holder.mTextView6.setText(phones[position]);
         holder.mTextView7.setText(adreese[position]);
-        holder.mTextView8.setText(price[position]);
+        holder.mTextView8.setText(goodsname[position]);
 
     }
 

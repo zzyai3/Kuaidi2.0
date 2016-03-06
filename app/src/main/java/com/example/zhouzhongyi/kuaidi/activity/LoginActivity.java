@@ -16,13 +16,20 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.zhouzhongyi.kuaidi.Helper.ShoppingbeanHelper;
 import com.example.zhouzhongyi.kuaidi.R;
+import com.example.zhouzhongyi.kuaidi.bean.Goodsbean;
+import com.example.zhouzhongyi.kuaidi.bean.Shoppingbean;
 import com.example.zhouzhongyi.kuaidi.bean.UserData;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobInstallation;
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 
 /**
@@ -45,6 +52,39 @@ public class LoginActivity extends Activity {
         Bmob.initialize(this,"538cf6944746a4f0eb8553aac96fda48");
         //推送服务
 //        BmobInstallation.getCurrentInstallation(this).save();
+
+        BmobQuery<Goodsbean> query = new BmobQuery<Goodsbean>();
+//执行查询方法
+        query.findObjects(this, new FindListener<Goodsbean>() {
+            @Override
+            public void onSuccess(List<Goodsbean> object) {
+                // TODO Auto-generated method stub
+                //   Toast.makeText("查询成功：共"+object.size()+"条数据。").show();
+
+                for (Goodsbean goodsbean : object) {
+
+                    ShoppingbeanHelper.goodsname.add(goodsbean.getGoodsname());
+                    ShoppingbeanHelper.goodsnum.add(goodsbean.getGoodsnum());
+                    ShoppingbeanHelper.goodsprice.add(goodsbean.getGoodsprice());
+
+
+//                        //获得playerName的信息
+//                        goodsbean.getGoodsname();
+//                        goodsbean.getGoodsnum();
+//                        goodsbean.getGoodsprice();
+                    //获得数据的objectId信息
+                    Toast.makeText(LoginActivity.this,goodsbean.getGoodsname()+goodsbean.getGoodsprice()+goodsbean.getGoodsnum(),Toast.LENGTH_SHORT).show();
+
+                }
+            }
+            @Override
+            public void onError(int code, String msg) {
+
+            }
+        });
+
+
+
        et_lg_phonenum=(EditText)findViewById(R.id.et_lg_phonenum);
        et_lg_passwd=(EditText)findViewById(R.id.et_lg_passwd);
        btn_lg_regster=(Button)findViewById(R.id.btn_lg_register);

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.zhouzhongyi.kuaidi.Helper.ShoppingbeanHelper;
 import com.example.zhouzhongyi.kuaidi.R;
 import com.example.zhouzhongyi.kuaidi.activity.MainActivity;
 import com.example.zhouzhongyi.kuaidi.activity.ShoppingActivity;
@@ -36,7 +37,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
     private CardView cardView;
     private String[] jiage;
     private String[] num;
-    private String[] price;
+    private String[] goodsname;
 
     public ShopAdapter(Context context) {
 
@@ -52,9 +53,35 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
 
 
 
-        jiage = context.getResources().getStringArray(R.array.jiage);
-        num = context.getResources().getStringArray(R.array.num);
-        price = context.getResources().getStringArray(R.array.prices);
+        //jiage = context.getResources().getStringArray(R.array.jiage);
+//        num = context.getResources().getStringArray(R.array.num);
+//        jiage = context.getResources().getStringArray(R.array.jiage);
+
+        goodsname = ShoppingbeanHelper.goodsname.toArray(new String[]{});
+        num = ShoppingbeanHelper.goodsnum.toArray(new String[]{});
+        jiage = ShoppingbeanHelper.goodsprice.toArray(new String[]{});
+
+        for (String aa  : goodsname) {
+
+            System.err.println("aAAAAAAAAA       ----->" + aa);
+
+        }
+
+
+        for (String aa  : num) {
+
+            System.err.println("aAAAAAAAAA       ----->" + aa);
+
+        }
+
+        for (String aa  : jiage) {
+
+            System.err.println("aAAAAAAAAA       ----->" + aa);
+
+        }
+
+
+
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
     }
@@ -72,7 +99,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
         holder.mTextView2.setText("价格:");
         holder.mTextView3.setText("库存:");
 
-        holder.mTextView5.setText(price[position]);
+        holder.mTextView5.setText(goodsname[position]);
         holder.mTextView6.setText(jiage[position]);
         holder.mTextView7.setText(num[position]);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +115,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
 
     @Override
     public int getItemCount() {
-        return price == null ? 0 : price.length;
+        return goodsname == null ? 0 : goodsname.length;
     }
 
     public static class ShopTextViewHolder extends RecyclerView.ViewHolder {
