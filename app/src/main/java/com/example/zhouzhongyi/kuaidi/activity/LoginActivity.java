@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.zhouzhongyi.kuaidi.Helper.ShoppingbeanHelper;
 import com.example.zhouzhongyi.kuaidi.R;
+import com.example.zhouzhongyi.kuaidi.adapter.ShopAdapter;
 import com.example.zhouzhongyi.kuaidi.bean.Goodsbean;
 import com.example.zhouzhongyi.kuaidi.bean.Shoppingbean;
 import com.example.zhouzhongyi.kuaidi.bean.UserData;
@@ -42,7 +43,11 @@ public class LoginActivity extends Activity {
     private Button btn_lg_login;
     private RadioGroup mRadioGroup;
     private RadioButton shopbutton,songbutton;
-  //  private ToastUtils toast = new ToastUtils(this);//初始化Toast工具类
+
+
+
+
+    //  private ToastUtils toast = new ToastUtils(this);//初始化Toast工具类
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);//去除原来标题栏
@@ -59,23 +64,33 @@ public class LoginActivity extends Activity {
             @Override
             public void onSuccess(List<Goodsbean> object) {
                 // TODO Auto-generated method stub
-                //   Toast.makeText("查询成功：共"+object.size()+"条数据。").show();
-
-                for (Goodsbean goodsbean : object) {
-
-                    ShoppingbeanHelper.goodsname.add(goodsbean.getGoodsname());
-                    ShoppingbeanHelper.goodsnum.add(goodsbean.getGoodsnum());
-                    ShoppingbeanHelper.goodsprice.add(goodsbean.getGoodsprice());
+//                Toast.makeText("查询成功：共"+object.size()+"条数据。").show();
 
 
-//                        //获得playerName的信息
-//                        goodsbean.getGoodsname();
-//                        goodsbean.getGoodsnum();
-//                        goodsbean.getGoodsprice();
-                    //获得数据的objectId信息
-                    Toast.makeText(LoginActivity.this,goodsbean.getGoodsname()+goodsbean.getGoodsprice()+goodsbean.getGoodsnum(),Toast.LENGTH_SHORT).show();
 
-                }
+
+
+                ShoppingbeanHelper.goodsList=object;
+
+
+//                for (Goodsbean goodsbean : object) {
+//
+//
+//
+//
+//                    ShoppingbeanHelper.goodsname.add(goodsbean.getGoodsname());
+//                    ShoppingbeanHelper.goodsnum.add(goodsbean.getGoodsnum());
+//                    ShoppingbeanHelper.goodsprice.add(goodsbean.getGoodsprice());
+//
+//
+////                        //获得playerName的信息
+////                        goodsbean.getGoodsname();
+////                        goodsbean.getGoodsnum();
+////                        goodsbean.getGoodsprice();
+//                    //获得数据的objectId信息
+//                    Toast.makeText(LoginActivity.this,goodsbean.getGoodsname()+goodsbean.getGoodsprice()+goodsbean.getGoodsnum(),Toast.LENGTH_SHORT).show();
+//
+//                }
             }
             @Override
             public void onError(int code, String msg) {

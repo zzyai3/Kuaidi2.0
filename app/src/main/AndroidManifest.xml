@@ -36,6 +36,7 @@
         <activity android:name=".activity.CheckdoneActivity"/>
         <activity android:name=".activity.ShoppingmoreActivity"/>
         <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.AddmoreActivity"/>
         <activity android:name=".activity.RegisterActicity"/><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data

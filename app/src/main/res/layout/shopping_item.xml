@@ -45,6 +45,7 @@
                 android:id="@+id/sp_view5"
                 android:paddingLeft="20dp"
                 android:text="花"
+                android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -64,6 +65,7 @@
                 android:id="@+id/sp_view6"
                 android:paddingLeft="20dp"
                 android:text="50"
+                android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

@@ -1,11 +1,13 @@
 package com.example.zhouzhongyi.kuaidi.bean;
 
+import java.io.Serializable;
+
 import cn.bmob.v3.BmobObject;
 
 /**
  * Created by zhouzhongyi on 16/3/5.
  */
-public class Goodsbean extends BmobObject{
+public class Goodsbean extends BmobObject implements Serializable {
     private String goodsname;
     private String goodsnum;
     private String goodsprice;

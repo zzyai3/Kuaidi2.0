@@ -14,6 +14,10 @@ import com.example.zhouzhongyi.kuaidi.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+/**
+ * Created by zhouzhongyi on 16/1/10.
+ *快递员接单适配器
+ */
 
 
 public class NormalRecyclerViewAdapter extends RecyclerView.Adapter<NormalRecyclerViewAdapter.NormalTextViewHolder> {

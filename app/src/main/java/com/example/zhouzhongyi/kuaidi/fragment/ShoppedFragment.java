@@ -14,14 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.zhouzhongyi.kuaidi.R;
-import com.example.zhouzhongyi.kuaidi.adapter.NormalRecyclerViewAdapter;
-import com.example.zhouzhongyi.kuaidi.adapter.ShopAdapter;
+import com.example.zhouzhongyi.kuaidi.adapter.ShopedAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
  * Created by zhouzhongyi on 16/1/10.
+ * 顾客已购页面
  */
 public class ShoppedFragment extends Fragment {
     public static final int TYPE_LINEAR_LAYOUT = 1;
@@ -65,7 +65,7 @@ public class ShoppedFragment extends Fragment {
         } else {
             mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));//这里用线性显示 类似于list view
         }
-        mRecyclerView.setAdapter(new ShopAdapter(getActivity()));
+        mRecyclerView.setAdapter(new ShopedAdapter(getActivity()));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 

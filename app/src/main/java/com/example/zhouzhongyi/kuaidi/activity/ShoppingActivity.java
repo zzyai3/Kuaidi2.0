@@ -45,6 +45,7 @@ import cn.bmob.v3.listener.FindListener;
 
 /**
  * Created by zhouzhongyi on 16/1/10.
+ * 顾客主页面
  */
 public class ShoppingActivity extends AppCompatActivity {
 
@@ -55,12 +56,7 @@ public class ShoppingActivity extends AppCompatActivity {
         private ViewPager mViewPager1;//控制页面切换控件
         private ArrayList<Fragment> fragmentList;//需要切换的页面
         private Main_ViewPagerAdapter adapter= null;//适配器
-        private Bitmap cursor;//centerbottom的Bitmap格式
-        private int currentItem;// 当前页卡编号
-        private Animation animation;//centerbottom图片切换动画
-        private ImageView iv_centerBottom;//动画图片
-        private int offSet;// 动画图片偏移量
-        private int bmWidth;//图片宽度
+
         /**
          * ATTENTION: This was auto-generated to implement the App Indexing API.
          * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -103,10 +99,6 @@ public class ShoppingActivity extends AppCompatActivity {
                            (position == 1) return new ShoppedFragment();
 
                     return new ShoppingFragment();
-                    // if (position == 1)
-                    //    return new Main_rb_2Fragment();
-
-
                 }
 
                 @Override
@@ -121,8 +113,6 @@ public class ShoppingActivity extends AppCompatActivity {
             });
 
             mTabLayout1.setupWithViewPager(mViewPager1);
-
-
 
             //    initView();//布局中找控件
             // initSlidingMenu();//初始化侧滑菜单
