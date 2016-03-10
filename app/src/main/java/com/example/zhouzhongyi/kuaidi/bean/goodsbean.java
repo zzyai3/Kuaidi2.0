@@ -9,14 +9,14 @@ import cn.bmob.v3.BmobObject;
  */
 public class Goodsbean extends BmobObject implements Serializable {
     private String goodsname;
-    private String goodsnum;
+    private Double goodsnum;
     private String goodsprice;
 
     public void setGoodsname(String goodsname) {
         this.goodsname = goodsname;
     }
 
-    public void setGoodsnum(String goodsnum) {
+    public void setGoodsnum(Double goodsnum) {
         this.goodsnum = goodsnum;
     }
 
@@ -25,10 +25,11 @@ public class Goodsbean extends BmobObject implements Serializable {
     }
 
     public String getGoodsname() {
+
         return goodsname;
     }
 
-    public String getGoodsnum() {
+    public Double getGoodsnum() {
         return goodsnum;
     }
 

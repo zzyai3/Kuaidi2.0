@@ -28,6 +28,7 @@ import com.example.zhouzhongyi.kuaidi.Helper.ShoppingbeanHelper;
 import com.example.zhouzhongyi.kuaidi.R;
 import com.example.zhouzhongyi.kuaidi.adapter.Main_ViewPagerAdapter;
 import com.example.zhouzhongyi.kuaidi.bean.Goodsbean;
+import com.example.zhouzhongyi.kuaidi.bean.Shoppingbean;
 import com.example.zhouzhongyi.kuaidi.fragment.Main_rb_1Fragment;
 import com.example.zhouzhongyi.kuaidi.fragment.Main_rb_2Fragment;
 import com.example.zhouzhongyi.kuaidi.fragment.Main_rb_3Fragment;
@@ -68,6 +69,25 @@ public class ShoppingActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_shopping);
+
+            BmobQuery<Shoppingbean> query = new BmobQuery<Shoppingbean>();
+            //执行查询方法
+            query.findObjects(this, new FindListener<Shoppingbean>() {
+                @Override
+                public void onSuccess(List<Shoppingbean> object) {
+//                    ShoppingbeanHelper.shoppingList = object;
+                }
+                @Override
+                public void onError(int code, String msg) {
+
+                }
+            });
+
+
+
+
+
+
             ButterKnife.bind(this);
             mToolbar = (Toolbar) findViewById(R.id.toolbar);
 

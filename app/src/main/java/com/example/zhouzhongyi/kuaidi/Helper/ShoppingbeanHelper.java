@@ -1,5 +1,7 @@
 package com.example.zhouzhongyi.kuaidi.Helper;
 
+import com.example.zhouzhongyi.kuaidi.bean.Shoppingbean;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +12,6 @@ public class ShoppingbeanHelper {
 
     public static List goodsList;
 
+    public static List<Shoppingbean> shoppingList;
 
-    public static List<String> goodsname = new ArrayList<String>();
-    public static List<String> goodsnum = new ArrayList<String>();
-    public static List<String> goodsprice = new ArrayList<String>();
 }

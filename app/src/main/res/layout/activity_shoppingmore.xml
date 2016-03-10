@@ -52,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="输入数量"
+            android:inputType="number"
             android:paddingLeft="20dp" />
     </LinearLayout>
     <LinearLayout
@@ -86,7 +87,7 @@
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/et_local"
+            android:id="@+id/et_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="输入地址"

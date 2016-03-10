@@ -13,6 +13,10 @@ import android.widget.TextView;
 import com.example.zhouzhongyi.kuaidi.Helper.ShoppingbeanHelper;
 import com.example.zhouzhongyi.kuaidi.R;
 import com.example.zhouzhongyi.kuaidi.activity.ShoppingmoreActivity;
+import com.example.zhouzhongyi.kuaidi.bean.Shoppingbean;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,20 +30,19 @@ public class ShopedAdapter extends RecyclerView.Adapter<ShopedAdapter.ShoppedTex
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
     private CardView cardView;
-    private String[] jiage;
-    private String[] num;
-    private String[] goodsname;
+    private List<Shoppingbean> shoppingList;
 
     public ShopedAdapter(Context context) {
-
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
+//        this.shoppingList = ShoppingbeanHelper.shoppingList;
+        shoppingList = new ArrayList<>();
     }
 
     @Override
     public ShoppedTextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        return new ShopedAdapter.ShoppedTextViewHolder(mLayoutInflater.inflate(R.layout.shopped_item, parent, false));
+        return new ShoppedTextViewHolder(mLayoutInflater.inflate(R.layout.shopped_item, parent, false));
     }
 
 //    @Override
@@ -52,26 +55,28 @@ public class ShopedAdapter extends RecyclerView.Adapter<ShopedAdapter.ShoppedTex
         //   DemoItem item = DemoItem.fromCursor(cursor);
         holder.mTextView.setText("商品:");
         holder.mTextView2.setText("价格:");
-//        holder.mTextView3.setText("购买数量:");
+        holder.mTextView3.setText("购买数量:");
 
-        holder.mTextView5.setText(goodsname[position]);
-        holder.mTextView6.setText(jiage[position]);
-        holder.mTextView7.setText(num[position]);
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(mContext,ShoppingmoreActivity.class);
+        holder.mTextView5.setText(shoppingList.get(position).getGoodsname());
+        holder.mTextView6.setText(shoppingList.get(position).getGoodsnumm().toString());
+        holder.mTextView7.setText(shoppingList.get(position).getAddress());
 
-                // intent.putExtra("News",newses.get(j));
-                mContext .startActivity(intent);
-            }
-        });
+
+//        holder.cardView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent=new Intent(mContext,ShoppingmoreActivity.class);
+//
+//                // intent.putExtra("News",newses.get(j));
+//                mContext .startActivity(intent);
+//            }
+//        });
 
     }
 
     @Override
     public int getItemCount() {
-        return goodsname == null ? 0 : goodsname.length;
+        return shoppingList == null ? 0 : shoppingList.size();
     }
 
     public static class ShoppedTextViewHolder extends RecyclerView.ViewHolder {

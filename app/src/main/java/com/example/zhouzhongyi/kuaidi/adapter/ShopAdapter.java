@@ -42,20 +42,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
     private Context context;
 
     private LayoutInflater mLayoutInflater;
-
-//    public ShopAdapter(Context context, List<Goodsbean> goodsList) {
-//        System.err.print("------" + goodsList);
-//        this.context = context;
-//        this.goodsList = goodsList;
-//        mLayoutInflater = LayoutInflater.from(context);
-//    }
-
-
-  //  private final Context mContext;
     private CardView cardView;
-//    private String[] goodsprice;
-//    private String[] num;
-//    private String[] goodsname;
 
 
     public ShopAdapter(Context context) {
@@ -65,28 +52,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
 
         goodsList = ShoppingbeanHelper.goodsList;
 
-//        goodsname = ShoppingbeanHelper.goodsname.toArray(new String[]{});
-//        num = ShoppingbeanHelper.goodsnum.toArray(new String[]{});
-//        goodsprice = ShoppingbeanHelper.goodsprice.toArray(new String[]{});
-////测试
-//        for (String aa  : goodsname) {
-//
-//            System.err.println("aAAAAAAAAA       ----->" + aa);
-//
-//        }
-//
-//
-//        for (String aa  : num) {
-//
-//            System.err.println("aAAAAAAAAA       ----->" + aa);
-//
-//        }
-//
-//        for (String aa  : goodsprice) {
-//
-//            System.err.println("aAAAAAAAAA       ----->" + aa);
-//
-//        }
+
         this.context = context;
         mLayoutInflater = LayoutInflater.from(context);
     }
@@ -105,7 +71,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
 
         holder.mTextView5.setText(goodsList.get(position).getGoodsname());
         holder.mTextView6.setText(goodsList.get(position).getGoodsprice());
-        holder.mTextView7.setText(goodsList.get(position).getGoodsnum());
+        holder.mTextView7.setText(goodsList.get(position).getGoodsnum().toString());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override

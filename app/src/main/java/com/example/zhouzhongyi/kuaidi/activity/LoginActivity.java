@@ -59,38 +59,11 @@ public class LoginActivity extends Activity {
 //        BmobInstallation.getCurrentInstallation(this).save();
 
         BmobQuery<Goodsbean> query = new BmobQuery<Goodsbean>();
-//执行查询方法
+        //执行查询方法
         query.findObjects(this, new FindListener<Goodsbean>() {
             @Override
             public void onSuccess(List<Goodsbean> object) {
-                // TODO Auto-generated method stub
-//                Toast.makeText("查询成功：共"+object.size()+"条数据。").show();
-
-
-
-
-
                 ShoppingbeanHelper.goodsList=object;
-
-
-//                for (Goodsbean goodsbean : object) {
-//
-//
-//
-//
-//                    ShoppingbeanHelper.goodsname.add(goodsbean.getGoodsname());
-//                    ShoppingbeanHelper.goodsnum.add(goodsbean.getGoodsnum());
-//                    ShoppingbeanHelper.goodsprice.add(goodsbean.getGoodsprice());
-//
-//
-////                        //获得playerName的信息
-////                        goodsbean.getGoodsname();
-////                        goodsbean.getGoodsnum();
-////                        goodsbean.getGoodsprice();
-//                    //获得数据的objectId信息
-//                    Toast.makeText(LoginActivity.this,goodsbean.getGoodsname()+goodsbean.getGoodsprice()+goodsbean.getGoodsnum(),Toast.LENGTH_SHORT).show();
-//
-//                }
             }
             @Override
             public void onError(int code, String msg) {
