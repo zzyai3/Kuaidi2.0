@@ -13,6 +13,34 @@ public class Shoppingbean extends BmobObject implements Serializable {
     private Double goodsnumm;
     private String address;
     private String user;
+    private String type;
+    private String usersong;
+    private String phone;
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPhone() {
+
+        return phone;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getUsersong() {
+        return usersong;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setUsersong(String usersong) {
+        this.usersong = usersong;
+    }
 
     public void setGoodsname(String goodsname) {
         this.goodsname = goodsname;

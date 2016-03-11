@@ -1,7 +1,6 @@
 package com.example.zhouzhongyi.kuaidi.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,16 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.zhouzhongyi.kuaidi.Helper.ShoppingbeanHelper;
+import com.example.zhouzhongyi.kuaidi.Helper.Helper;
 import com.example.zhouzhongyi.kuaidi.R;
-import com.example.zhouzhongyi.kuaidi.activity.ShoppingmoreActivity;
 import com.example.zhouzhongyi.kuaidi.bean.Shoppingbean;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -35,7 +30,7 @@ public class ShopedAdapter extends RecyclerView.Adapter<ShopedAdapter.ShoppedTex
     public ShopedAdapter(Context context) {
         this.mContext = context;
         this.mLayoutInflater = LayoutInflater.from(context);
-        this.shoppingList = ShoppingbeanHelper.shoppingList;
+        this.shoppingList = Helper.shoppingList;
     }
 
     @Override

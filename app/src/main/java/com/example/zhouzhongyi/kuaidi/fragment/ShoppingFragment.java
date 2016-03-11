@@ -13,9 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.zhouzhongyi.kuaidi.Helper.ShoppingbeanHelper;
 import com.example.zhouzhongyi.kuaidi.R;
-import com.example.zhouzhongyi.kuaidi.adapter.NormalRecyclerViewAdapter;
 import com.example.zhouzhongyi.kuaidi.adapter.ShopAdapter;
 
 import butterknife.Bind;

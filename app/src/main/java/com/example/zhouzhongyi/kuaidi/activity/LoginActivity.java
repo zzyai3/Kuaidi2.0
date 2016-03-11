@@ -1,34 +1,24 @@
 package com.example.zhouzhongyi.kuaidi.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.zhouzhongyi.kuaidi.Helper.GoodsbeanHelper;
-import com.example.zhouzhongyi.kuaidi.Helper.ShoppingbeanHelper;
+import com.example.zhouzhongyi.kuaidi.Helper.Helper;
 import com.example.zhouzhongyi.kuaidi.R;
-import com.example.zhouzhongyi.kuaidi.adapter.ShopAdapter;
 import com.example.zhouzhongyi.kuaidi.bean.Goodsbean;
-import com.example.zhouzhongyi.kuaidi.bean.Shoppingbean;
 import com.example.zhouzhongyi.kuaidi.bean.UserData;
 
 import java.util.List;
 
-import butterknife.ButterKnife;
 import cn.bmob.v3.Bmob;
-import cn.bmob.v3.BmobInstallation;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.FindListener;
@@ -64,7 +54,7 @@ public class LoginActivity extends Activity {
         query.findObjects(this, new FindListener<Goodsbean>() {
             @Override
             public void onSuccess(List<Goodsbean> object) {
-                GoodsbeanHelper.goodsbeenList = object;
+                Helper.goodsbeenList = object;
             }
             @Override
             public void onError(int code, String msg) {

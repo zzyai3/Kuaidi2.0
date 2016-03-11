@@ -19,10 +19,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.zhouzhongyi.kuaidi.Helper.Helper;
 import com.example.zhouzhongyi.kuaidi.R;
 import com.example.zhouzhongyi.kuaidi.adapter.Center_FragmentAdapter;
 import com.example.zhouzhongyi.kuaidi.adapter.Main_ViewPagerAdapter;
 
+import com.example.zhouzhongyi.kuaidi.bean.Shoppingbean;
+import com.example.zhouzhongyi.kuaidi.bean.UserData;
 import com.example.zhouzhongyi.kuaidi.fragment.Main_rb_1Fragment;
 import com.example.zhouzhongyi.kuaidi.fragment.Main_rb_2Fragment;
 import com.example.zhouzhongyi.kuaidi.fragment.Main_rb_3Fragment;
@@ -31,8 +34,12 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.GetListener;
 
 public class MainActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
@@ -58,6 +65,40 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        BmobQuery<Shoppingbean> query = new BmobQuery<Shoppingbean>();
+        //查询playerName叫“比目”的数据
+        query.addWhereEqualTo("type", "1");
+        //执行查询方法
+        query.findObjects(this, new FindListener<Shoppingbean>() {
+            @Override
+            public void onSuccess(List<Shoppingbean> object) {
+                for (final Shoppingbean shoppingbean : object) {
+                    BmobQuery<UserData> query = new BmobQuery<UserData>();
+                    query.getObject(MainActivity.this, shoppingbean.getUser(), new GetListener<UserData>() {
+                        @Override
+                        public void onSuccess(UserData object) {
+                            shoppingbean.setPhone(object.getUsername());
+                        }
+                        @Override
+                        public void onFailure(int code, String arg0) {
+
+                        }
+                    });
+                }
+                Helper.orderList1 = object;
+            }
+            @Override
+            public void onError(int code, String msg) {
+
+            }
+        });
+
+
+
+
+
+
         ButterKnife.bind(this);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
      //    setSupportActionBar(mToolbar);

@@ -1,7 +1,8 @@
 package com.example.zhouzhongyi.kuaidi.adapter;
 
 import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,16 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.zhouzhongyi.kuaidi.Helper.ShoppingbeanHelper;
+import com.example.zhouzhongyi.kuaidi.Helper.Helper;
 import com.example.zhouzhongyi.kuaidi.R;
-import com.example.zhouzhongyi.kuaidi.activity.ShoppingmoreActivity;
-import com.example.zhouzhongyi.kuaidi.bean.Goodsbean;
 import com.example.zhouzhongyi.kuaidi.bean.Shoppingbean;
 
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -27,7 +24,7 @@ import butterknife.OnClick;
  */
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderTextViewHolder> {
 
-    private List<Shoppingbean> shoppingList;
+    private List<Shoppingbean> orderList1;
 
     private Context context;
 
@@ -37,11 +34,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderTextVie
 
     public OrderAdapter(Context context) {
 
-
-//        System.err.print("========" + ShoppingbeanHelper.shoppingList);
-
-        shoppingList = ShoppingbeanHelper.shoppingList;
-
+        orderList1 = Helper.orderList1;
 
         this.context = context;
         mLayoutInflater = LayoutInflater.from(context);
@@ -49,37 +42,52 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderTextVie
 
     @Override
     public OrderTextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new OrderTextViewHolder(mLayoutInflater.inflate(R.layout.shopped_item, parent, false));
+        return new OrderTextViewHolder(mLayoutInflater.inflate(R.layout.order_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(OrderTextViewHolder holder, final int position) {
         //   DemoItem item = DemoItem.fromCursor(cursor);
-        holder.sp_view1.setText("商品名称:");
-        holder.sp_view12.setText("购买数量:");
-        holder.sp_view13.setText("购买地址:");
+       // holder.text_view.setText("用户姓名:");
+        holder.text_view2.setText("用户电话:");
+        holder.text_view3.setText("用户地址:");
+        holder.text_view4.setText("用户商品:");
+        holder.text_view9.setText("商品数量:");
 
-        holder.sp_view15.setText(shoppingList.get(position).getGoodsname());
-        holder.sp_view16.setText(String.valueOf(shoppingList.get(position).getGoodsnumm().intValue()));
-        holder.sp_view17.setText(shoppingList.get(position).getAddress());
+       // holder.text_view5.setText();
+        holder.text_view6.setText(orderList1.get(position).getPhone());
+        holder.text_view7.setText(orderList1.get(position).getAddress());
+        holder.text_view8.setText(orderList1.get(position).getGoodsname());
+        holder.text_view10.setText(String.valueOf(orderList1.get(position).getGoodsnumm().intValue()));
 
 
-//        holder.cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("提示");
+                builder.setMessage("接单成功");
+                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+
+                    }
+                });
+                builder.create().show();
 //                Intent intent=new Intent(context,ShoppingmoreActivity.class);
 //                System.err.print("------------->>>"+shoppingList);
 //                intent.putExtra("Shop", shoppingList.get(position));
 //                // intent.putExtra("News",newses.get(j));
 //                context .startActivity(intent);
-//            }
-//        });
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return shoppingList == null ? 0 : shoppingList.size();
+        return orderList1 == null ? 0 : orderList1.size();
     }
 
     public static class OrderTextViewHolder extends RecyclerView.ViewHolder {
@@ -99,12 +107,19 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderTextVie
 //        TextView mTextView6;
 //        @Bind(R.id.sp_view7)
 //        TextView mTextView7;
-        TextView sp_view1;
-        TextView sp_view12;
-        TextView sp_view13;
-        TextView sp_view15;
-        TextView sp_view16;
-        TextView sp_view17;
+       // TextView text_view;
+       // TextView text_view5;
+        TextView text_view2;
+        TextView text_view6;
+
+
+        TextView text_view3;
+        TextView text_view7;
+        TextView text_view4;
+        TextView text_view8;
+        TextView text_view9;
+        TextView text_view10;
+        CardView cardView;
 
 
 
@@ -112,12 +127,17 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderTextVie
         OrderTextViewHolder(View view) {
             super(view);
         //    ButterKnife.bind(this, view);
-            sp_view1 = (TextView)itemView.findViewById(R.id.sp_view1);
-            sp_view12 = (TextView)itemView.findViewById(R.id.sp_view12);
-            sp_view13 = (TextView)itemView.findViewById(R.id.sp_view13);
-            sp_view15 = (TextView)itemView.findViewById(R.id.sp_view15);
-            sp_view16 = (TextView)itemView.findViewById(R.id.sp_view16);
-            sp_view17 = (TextView)itemView.findViewById(R.id.sp_view17);
+         //   text_view = (TextView)itemView.findViewById(R.id.text_view);
+            text_view2 = (TextView)itemView.findViewById(R.id.text_view2);
+            text_view3 = (TextView)itemView.findViewById(R.id.text_view3);
+            text_view4 = (TextView)itemView.findViewById(R.id.text_view4);
+           // text_view5 = (TextView)itemView.findViewById(R.id.text_view5);
+            text_view6 = (TextView)itemView.findViewById(R.id.text_view6);
+            text_view7 = (TextView)itemView.findViewById(R.id.text_view7);
+            text_view8 = (TextView)itemView.findViewById(R.id.text_view8);
+            text_view9 = (TextView)itemView.findViewById(R.id.text_view9);
+            text_view10 = (TextView)itemView.findViewById(R.id.text_view10);
+            cardView = (CardView)itemView.findViewById(R.id.cv_item6);
         }
 
         @OnClick(R.id.cv_item)

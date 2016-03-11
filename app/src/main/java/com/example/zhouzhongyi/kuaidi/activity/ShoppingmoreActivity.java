@@ -81,6 +81,7 @@ public class ShoppingmoreActivity extends AppCompatActivity {
                 sb.setGoodsname(item.getGoodsname());
                 sb.setAddress(address);
                 sb.setGoodsnumm(number);
+                sb.setType("1");
                 sb.save(ShoppingmoreActivity.this, new SaveListener() {
                     @Override
                     public void onSuccess() {
