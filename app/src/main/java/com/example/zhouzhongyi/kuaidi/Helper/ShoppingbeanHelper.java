@@ -9,6 +9,6 @@ import java.util.List;
  */
 public class ShoppingbeanHelper {
 
-    public static List shoppingList;
+    public static List<Shoppingbean> shoppingList;
 
 }

@@ -52,13 +52,13 @@ public class ShopedAdapter extends RecyclerView.Adapter<ShopedAdapter.ShoppedTex
     //@Override
     public void onBindViewHolder(ShoppedTextViewHolder holder, int position) {
         //   DemoItem item = DemoItem.fromCursor(cursor);
-        holder.mTextView.setText("商品:");
-        holder.mTextView2.setText("价格:");
-        holder.mTextView3.setText("购买数量:");
+        holder.sp_view1.setText("商品:");
+        holder.sp_view12.setText("价格:");
+        holder.sp_view13.setText("购买数量:");
 
-        holder.mTextView5.setText(shoppingList.get(position).getGoodsname());
-        holder.mTextView6.setText(shoppingList.get(position).getGoodsnumm().toString());
-        holder.mTextView7.setText(shoppingList.get(position).getAddress());
+        holder.sp_view15.setText(shoppingList.get(position).getGoodsname());
+        holder.sp_view16.setText(shoppingList.get(position).getGoodsnumm().toString());
+        holder.sp_view17.setText(shoppingList.get(position).getAddress());
 
 
 //        holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -79,25 +79,41 @@ public class ShopedAdapter extends RecyclerView.Adapter<ShopedAdapter.ShoppedTex
     }
 
     public static class ShoppedTextViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.sp_view)
-        TextView mTextView;
-        @Bind(R.id.sp_view2)
-        TextView mTextView2;
-        @Bind(R.id.sp_view3)
-        TextView mTextView3;
-        @Bind(R.id.cv_item)
-        CardView cardView;
+        TextView sp_view1;
 
-        @Bind(R.id.sp_view5)
-        TextView mTextView5;
-        @Bind(R.id.sp_view6)
-        TextView mTextView6;
-        @Bind(R.id.sp_view7)
-        TextView mTextView7;
+        TextView sp_view12;
+        TextView sp_view13;
+        TextView sp_view15;
+        TextView sp_view16;
+        TextView sp_view17;
+
+//        @Bind(R.id.sp_view)
+//        TextView mTextView;
+//        @Bind(R.id.sp_view2)
+//        TextView mTextView2;
+//        @Bind(R.id.sp_view3)
+//        TextView mTextView3;
+//        @Bind(R.id.cv_item)
+//        CardView cardView;
+//
+//        @Bind(R.id.sp_view5)
+//        TextView mTextView5;
+//        @Bind(R.id.sp_view6)
+//        TextView mTextView6;
+//        @Bind(R.id.sp_view7)
+//        TextView mTextView7;
 
         ShoppedTextViewHolder(View view) {
             super(view);
-            ButterKnife.bind(this, view);
+            sp_view1 = (TextView)itemView.findViewById(R.id.sp_view1);
+            sp_view12 = (TextView)itemView.findViewById(R.id.sp_view12);
+            sp_view13 = (TextView)itemView.findViewById(R.id.sp_view13);
+            sp_view15 = (TextView)itemView.findViewById(R.id.sp_view15);
+            sp_view16 = (TextView)itemView.findViewById(R.id.sp_view16);
+            sp_view17 = (TextView)itemView.findViewById(R.id.sp_view17);
+
+
+          //  ButterKnife.bind(this, view);
         }
 
         @OnClick(R.id.cv_item3)

@@ -36,13 +36,13 @@
                 android:orientation="horizontal"
                 android:padding="5dp">
                 <TextView
-                    android:id="@+id/sp_view"
+                    android:id="@+id/sp_view1"
                     android:paddingLeft="20dp"
                     android:text="名称:"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
-                    android:id="@+id/sp_view5"
+                    android:id="@+id/sp_view15"
                     android:paddingLeft="20dp"
                     android:text="花"
                     android:textSize="20dp"
@@ -55,14 +55,14 @@
                 android:orientation="horizontal"
                 android:padding="5dp">
                 <TextView
-                    android:id="@+id/sp_view2"
+                    android:id="@+id/sp_view12"
                     android:layout_below="@+id/text_view"
                     android:paddingLeft="20dp"
                     android:text="价格:"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
-                    android:id="@+id/sp_view6"
+                    android:id="@+id/sp_view16"
                     android:paddingLeft="20dp"
                     android:text="50"
                     android:textSize="20dp"
@@ -75,14 +75,14 @@
                 android:orientation="horizontal"
                 android:padding="5dp">
                 <TextView
-                    android:id="@+id/sp_view3"
+                    android:id="@+id/sp_view13"
                     android:layout_below="@+id/text_view2"
                     android:paddingLeft="20dp"
                     android:text="购买数量:"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
-                    android:id="@+id/sp_view7"
+                    android:id="@+id/sp_view17"
                     android:paddingLeft="20dp"
                     android:text="2"
                     android:layout_width="match_parent"

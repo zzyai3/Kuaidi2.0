@@ -147,7 +147,41 @@ public class ShoppingActivity extends AppCompatActivity {
         }
 
 
-        private void init() {
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        BmobQuery<Shoppingbean> query = new BmobQuery<Shoppingbean>();
+        //查询playerName叫“比目”的数据
+        query.addWhereEqualTo("playerName", "比目");
+        //执行查询方法
+        query.findObjects(this, new FindListener<Shoppingbean>() {
+            @Override
+            public void onSuccess(List<Shoppingbean> object) {
+
+                for (Shoppingbean shoppingbean : object) {
+
+                    System.err.println("-------->" + shoppingbean);
+
+
+
+
+                }
+
+
+
+                ShoppingbeanHelper.shoppingList = object;
+            }
+            @Override
+            public void onError(int code, String msg) {
+
+            }
+        });
+
+
+
+    }
+
+    private void init() {
             //切换菜单点击事件
 
         }
