@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.zhouzhongyi.kuaidi.Helper.Shop;
+import com.example.zhouzhongyi.kuaidi.Helper.GoodsbeanHelper;
 import com.example.zhouzhongyi.kuaidi.Helper.ShoppingbeanHelper;
 import com.example.zhouzhongyi.kuaidi.R;
 import com.example.zhouzhongyi.kuaidi.activity.MainActivity;
@@ -46,15 +46,9 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
 
 
     public ShopAdapter(Context context) {
-
-
-        System.err.print("========" + ShoppingbeanHelper.goodsList);
-
-        goodsList = ShoppingbeanHelper.goodsList;
-
-
+        goodsList = GoodsbeanHelper.goodsbeenList;
         this.context = context;
-        mLayoutInflater = LayoutInflater.from(context);
+        this.mLayoutInflater = LayoutInflater.from(context);
     }
 
     @Override

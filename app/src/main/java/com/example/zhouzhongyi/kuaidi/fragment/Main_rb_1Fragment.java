@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.zhouzhongyi.kuaidi.R;
 import com.example.zhouzhongyi.kuaidi.adapter.NormalRecyclerViewAdapter;
+import com.example.zhouzhongyi.kuaidi.adapter.OrderAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -66,7 +67,7 @@ public class Main_rb_1Fragment extends android.support.v4.app.Fragment {
         } else {
             mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));//这里用线性显示 类似于list view
         }
-        mRecyclerView.setAdapter(new NormalRecyclerViewAdapter(getActivity()));
+        mRecyclerView.setAdapter(new OrderAdapter(getActivity()));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 

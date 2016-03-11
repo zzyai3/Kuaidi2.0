@@ -75,19 +75,13 @@ public class ShoppingActivity extends AppCompatActivity {
             query.findObjects(this, new FindListener<Shoppingbean>() {
                 @Override
                 public void onSuccess(List<Shoppingbean> object) {
-//                    ShoppingbeanHelper.shoppingList = object;
+                    ShoppingbeanHelper.shoppingList = object;
                 }
                 @Override
                 public void onError(int code, String msg) {
 
                 }
             });
-
-
-
-
-
-
             ButterKnife.bind(this);
             mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -142,65 +136,7 @@ public class ShoppingActivity extends AppCompatActivity {
             // See https://g.co/AppIndexing/AndroidStudio for more information.
             client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
         }
-//    private void switchToBook() {
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new BooksFragment()).commit();
-//        mToolbar.setTitle("你猜");
-//    }
-//
-//    private void switchToExample() {
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new ExampleFragment()).commit();
-//        mToolbar.setTitle("不知道");
-//    }
-//
-//    private void switchToBlog() {
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new BlogFragment()).commit();
-//        mToolbar.setTitle("有什么");
-//    }
-//
-//
-//    private void switchToAbout() {
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new AboutFragment()).commit();
-//        mToolbar.setTitle("真不知道");
-//    }
 
-
-//    private void setUpProfileImage() {
-//        findViewById(R.id.profile_image).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                switchToBlog();
-//                mDrawerLayout.closeDrawers();
-//                mNavigationView.getMenu().getItem(1).setChecked(true);
-//            }
-//        });
-//    }
-//    private void setupDrawerContent(NavigationView navigationView) {
-//        navigationView.setNavigationItemSelectedListener(
-//                new NavigationView.OnNavigationItemSelectedListener() {
-//                    @Override
-//                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-//                        switch (menuItem.getItemId()) {
-//
-//                            case R.id.navigation_item_book:
-//                                switchToBook();
-//                                break;
-//                            case R.id.navigation_item_example:
-//                                switchToExample();
-//                                break;
-//                            case R.id.navigation_item_blog:
-//                                switchToBlog();
-//                                break;
-//                            case R.id.navigation_item_about:
-//                                switchToAbout();
-//                                break;
-//
-//                        }
-//                        menuItem.setChecked(true);
-//                        mDrawerLayout.closeDrawers();
-//                        return true;
-//                    }
-//                });
-        //  }
 
         private void init() {
             //切换菜单点击事件

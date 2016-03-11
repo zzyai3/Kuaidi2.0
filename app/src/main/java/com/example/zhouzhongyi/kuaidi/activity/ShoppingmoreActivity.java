@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.zhouzhongyi.kuaidi.Helper.Shop;
 import com.example.zhouzhongyi.kuaidi.R;
 import com.example.zhouzhongyi.kuaidi.bean.Goodsbean;
 import com.example.zhouzhongyi.kuaidi.bean.Shoppingbean;

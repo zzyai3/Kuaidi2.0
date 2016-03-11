@@ -13,9 +13,9 @@ import android.widget.TextView;
 import com.example.zhouzhongyi.kuaidi.Helper.ShoppingbeanHelper;
 import com.example.zhouzhongyi.kuaidi.R;
 import com.example.zhouzhongyi.kuaidi.activity.ShoppingmoreActivity;
+import com.example.zhouzhongyi.kuaidi.bean.Goodsbean;
 import com.example.zhouzhongyi.kuaidi.bean.Shoppingbean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -23,51 +23,54 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by zhouzhongyi on 16/3/9.
- * 已购页面适配器
+ * Created by zhouzhongyi on 16/3/11.
  */
-public class ShopedAdapter extends RecyclerView.Adapter<ShopedAdapter.ShoppedTextViewHolder>{
-    private final LayoutInflater mLayoutInflater;
-    private final Context mContext;
-    private CardView cardView;
+public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderTextViewHolder> {
+
     private List<Shoppingbean> shoppingList;
 
-    public ShopedAdapter(Context context) {
-        this.mContext = context;
-        this.mLayoutInflater = LayoutInflater.from(context);
-        this.shoppingList = ShoppingbeanHelper.shoppingList;
+    private Context context;
+
+    private LayoutInflater mLayoutInflater;
+    private CardView cardView;
+
+
+    public OrderAdapter(Context context) {
+
+
+//        System.err.print("========" + ShoppingbeanHelper.shoppingList);
+
+        shoppingList = ShoppingbeanHelper.shoppingList;
+
+
+        this.context = context;
+        mLayoutInflater = LayoutInflater.from(context);
     }
 
     @Override
-    public ShoppedTextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        return new ShoppedTextViewHolder(mLayoutInflater.inflate(R.layout.shopped_item, parent, false));
+    public OrderTextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new OrderTextViewHolder(mLayoutInflater.inflate(R.layout.shopped_item, parent, false));
     }
 
-//    @Override
-//    public void onBindViewHolder(ShopedAdapter.ShoppedTextViewHolder holder, int position) {
-//
-//    }
-
-    //@Override
-    public void onBindViewHolder(ShoppedTextViewHolder holder, int position) {
+    @Override
+    public void onBindViewHolder(OrderTextViewHolder holder, final int position) {
         //   DemoItem item = DemoItem.fromCursor(cursor);
         holder.mTextView.setText("商品:");
         holder.mTextView2.setText("价格:");
-        holder.mTextView3.setText("购买数量:");
+        holder.mTextView3.setText("库存:");
 
         holder.mTextView5.setText(shoppingList.get(position).getGoodsname());
         holder.mTextView6.setText(shoppingList.get(position).getGoodsnumm().toString());
         holder.mTextView7.setText(shoppingList.get(position).getAddress());
 
-
 //        holder.cardView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent intent=new Intent(mContext,ShoppingmoreActivity.class);
-//
+//                Intent intent=new Intent(context,ShoppingmoreActivity.class);
+//                System.err.print("------------->>>"+shoppingList);
+//                intent.putExtra("Shop", shoppingList.get(position));
 //                // intent.putExtra("News",newses.get(j));
-//                mContext .startActivity(intent);
+//                context .startActivity(intent);
 //            }
 //        });
 
@@ -78,7 +81,7 @@ public class ShopedAdapter extends RecyclerView.Adapter<ShopedAdapter.ShoppedTex
         return shoppingList == null ? 0 : shoppingList.size();
     }
 
-    public static class ShoppedTextViewHolder extends RecyclerView.ViewHolder {
+    public static class OrderTextViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.sp_view)
         TextView mTextView;
         @Bind(R.id.sp_view2)
@@ -88,6 +91,7 @@ public class ShopedAdapter extends RecyclerView.Adapter<ShopedAdapter.ShoppedTex
         @Bind(R.id.cv_item)
         CardView cardView;
 
+
         @Bind(R.id.sp_view5)
         TextView mTextView5;
         @Bind(R.id.sp_view6)
@@ -95,12 +99,14 @@ public class ShopedAdapter extends RecyclerView.Adapter<ShopedAdapter.ShoppedTex
         @Bind(R.id.sp_view7)
         TextView mTextView7;
 
-        ShoppedTextViewHolder(View view) {
+
+
+        OrderTextViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
         }
 
-        @OnClick(R.id.cv_item3)
+        @OnClick(R.id.cv_item)
         void onItemClick() {
             //   DemoItem item = DemoItem.fromCursor((Cursor) mAdapter.getItem(getPosition()));
 
@@ -111,4 +117,3 @@ public class ShopedAdapter extends RecyclerView.Adapter<ShopedAdapter.ShoppedTex
         }
     }
 }
-

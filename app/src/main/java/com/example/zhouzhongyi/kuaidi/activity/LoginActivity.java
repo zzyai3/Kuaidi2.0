@@ -16,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.zhouzhongyi.kuaidi.Helper.GoodsbeanHelper;
 import com.example.zhouzhongyi.kuaidi.Helper.ShoppingbeanHelper;
 import com.example.zhouzhongyi.kuaidi.R;
 import com.example.zhouzhongyi.kuaidi.adapter.ShopAdapter;
@@ -63,7 +64,7 @@ public class LoginActivity extends Activity {
         query.findObjects(this, new FindListener<Goodsbean>() {
             @Override
             public void onSuccess(List<Goodsbean> object) {
-                ShoppingbeanHelper.goodsList=object;
+                GoodsbeanHelper.goodsbeenList = object;
             }
             @Override
             public void onError(int code, String msg) {
