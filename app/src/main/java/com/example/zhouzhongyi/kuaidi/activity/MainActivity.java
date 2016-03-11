@@ -38,6 +38,7 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.GetListener;
 
@@ -66,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //查询1
         BmobQuery<Shoppingbean> query = new BmobQuery<Shoppingbean>();
-        //查询playerName叫“比目”的数据
         query.addWhereEqualTo("type", "1");
         //执行查询方法
         query.findObjects(this, new FindListener<Shoppingbean>() {
@@ -93,10 +94,62 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //查询2
+        BmobQuery<Shoppingbean> query2 = new BmobQuery<Shoppingbean>();
+        BmobUser bmobUser = BmobUser.getCurrentUser(MainActivity.this);
+        query2.addWhereEqualTo("type", "2");
+        query2.addWhereEqualTo("usersong", bmobUser.getObjectId());
+        //执行查询方法
+        query2.findObjects(this, new FindListener<Shoppingbean>() {
+            @Override
+            public void onSuccess(List<Shoppingbean> object) {
+                for (final Shoppingbean shoppingbean : object) {
+                    BmobQuery<UserData> query = new BmobQuery<UserData>();
+                    query.getObject(MainActivity.this, shoppingbean.getUser(), new GetListener<UserData>() {
+                        @Override
+                        public void onSuccess(UserData object) {
+                            shoppingbean.setPhone(object.getUsername());
+                        }
+                        @Override
+                        public void onFailure(int code, String arg0) {
 
+                        }
+                    });
+                }
+                Helper.orderList2 = object;
+            }
+            @Override
+            public void onError(int code, String msg) {
 
+            }
+        });
+        //查询3
+        BmobQuery<Shoppingbean> query3 = new BmobQuery<Shoppingbean>();
+        query3.addWhereEqualTo("type", "3");
+        //执行查询方法
+        query3.findObjects(this, new FindListener<Shoppingbean>() {
+            @Override
+            public void onSuccess(List<Shoppingbean> object) {for (final Shoppingbean shoppingbean : object) {
+                BmobQuery<UserData> query = new BmobQuery<UserData>();
+                query.getObject(MainActivity.this, shoppingbean.getUser(), new GetListener<UserData>() {
+                    @Override
+                    public void onSuccess(UserData object) {
+                        shoppingbean.setPhone(object.getUsername());
+                    }
+                    @Override
+                    public void onFailure(int code, String arg0) {
 
+                    }
+                });
+            }
 
+                Helper.orderList3 = object;
+            }
+            @Override
+            public void onError(int code, String msg) {
+
+            }
+        });
 
 
         ButterKnife.bind(this);

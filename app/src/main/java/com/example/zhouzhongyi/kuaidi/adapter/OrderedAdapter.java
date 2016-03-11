@@ -24,7 +24,7 @@ import cn.bmob.v3.listener.UpdateListener;
 /**
  * Created by zhouzhongyi on 16/3/11.
  */
-public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderTextViewHolder> {
+public class OrderedAdapter extends RecyclerView.Adapter<OrderedAdapter.OrderedTextViewHolder> {
 
     private List<Shoppingbean> orderList1;
 
@@ -34,78 +34,78 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderTextVie
     private CardView cardView;
 
 
-    public OrderAdapter(Context context) {
+    public OrderedAdapter(Context context) {
 
-        orderList1 = Helper.orderList1;
+        orderList1 = Helper.orderList3;
 
         this.context = context;
         mLayoutInflater = LayoutInflater.from(context);
     }
 
     @Override
-    public OrderTextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new OrderTextViewHolder(mLayoutInflater.inflate(R.layout.order_item, parent, false));
+    public OrderedTextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new OrderedTextViewHolder(mLayoutInflater.inflate(R.layout.ordered_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(OrderTextViewHolder holder, final int position) {
+    public void onBindViewHolder(OrderedTextViewHolder holder, final int position) {
         //   DemoItem item = DemoItem.fromCursor(cursor);
-       // holder.text_view.setText("用户姓名:");
+        // holder.text_view.setText("用户姓名:");
         holder.text_view2.setText("用户电话:");
         holder.text_view3.setText("用户地址:");
         holder.text_view4.setText("用户商品:");
         holder.text_view9.setText("商品数量:");
 
-       // holder.text_view5.setText();
+        // holder.text_view5.setText();
         holder.text_view6.setText(orderList1.get(position).getPhone());
         holder.text_view7.setText(orderList1.get(position).getAddress());
         holder.text_view8.setText(orderList1.get(position).getGoodsname());
         holder.text_view10.setText(String.valueOf(orderList1.get(position).getGoodsnumm().intValue()));
 
 
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("提示");
-                builder.setMessage("接单成功");
-                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        BmobUser bmobUser = BmobUser.getCurrentUser(context);
-
-                        Shoppingbean shoppingbean = new Shoppingbean();
-                        shoppingbean.setType("2");
-                        shoppingbean.setUsersong(bmobUser.getObjectId());
-                        shoppingbean.update(context, orderList1.get(position).getObjectId(), new UpdateListener() {
-
-                            @Override
-                            public void onSuccess() {
-                                // TODO Auto-generated method stub
-                                Log.i("bmob","更新成功：");
-                            }
-
-                            @Override
-                            public void onFailure(int code, String msg) {
-                                // TODO Auto-generated method stub
-                                Log.i("bmob","更新失败："+msg);
-                            }
-                        });
-
-
-
-
-                    }
-                });
-                builder.create().show();
-//                Intent intent=new Intent(context,ShoppingmoreActivity.class);
-//                System.err.print("------------->>>"+shoppingList);
-//                intent.putExtra("Shop", shoppingList.get(position));
-//                // intent.putExtra("News",newses.get(j));
-//                context .startActivity(intent);
-            }
-        });
+//        holder.cardView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//                builder.setTitle("提示");
+//                builder.setMessage("接单成功");
+//                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                        BmobUser bmobUser = BmobUser.getCurrentUser(context);
+//
+//                        Shoppingbean shoppingbean = new Shoppingbean();
+//                        shoppingbean.setType("2");
+//                        shoppingbean.setUsersong(bmobUser.getObjectId());
+//                        shoppingbean.update(context, orderList1.get(position).getObjectId(), new UpdateListener() {
+//
+//                            @Override
+//                            public void onSuccess() {
+//                                // TODO Auto-generated method stub
+//                                Log.i("bmob","更新成功：");
+//                            }
+//
+//                            @Override
+//                            public void onFailure(int code, String msg) {
+//                                // TODO Auto-generated method stub
+//                                Log.i("bmob","更新失败："+msg);
+//                            }
+//                        });
+//
+//
+//
+//
+//                    }
+//                });
+//                builder.create().show();
+////                Intent intent=new Intent(context,ShoppingmoreActivity.class);
+////                System.err.print("------------->>>"+shoppingList);
+////                intent.putExtra("Shop", shoppingList.get(position));
+////                // intent.putExtra("News",newses.get(j));
+////                context .startActivity(intent);
+//            }
+//        });
 
     }
 
@@ -114,8 +114,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderTextVie
         return orderList1 == null ? 0 : orderList1.size();
     }
 
-    public static class OrderTextViewHolder extends RecyclerView.ViewHolder {
-//        @Bind(R.id.sp_view)
+    public static class OrderedTextViewHolder extends RecyclerView.ViewHolder {
+        //        @Bind(R.id.sp_view)
 //        TextView mTextView;
 //        @Bind(R.id.sp_view2)
 //        TextView mTextView2;
@@ -131,8 +131,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderTextVie
 //        TextView mTextView6;
 //        @Bind(R.id.sp_view7)
 //        TextView mTextView7;
-       // TextView text_view;
-       // TextView text_view5;
+        // TextView text_view;
+        // TextView text_view5;
         TextView text_view2;
         TextView text_view6;
 
@@ -148,14 +148,14 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderTextVie
 
 
 
-        OrderTextViewHolder(View view) {
+        OrderedTextViewHolder(View view) {
             super(view);
-        //    ButterKnife.bind(this, view);
-         //   text_view = (TextView)itemView.findViewById(R.id.text_view);
+            //    ButterKnife.bind(this, view);
+            //   text_view = (TextView)itemView.findViewById(R.id.text_view);
             text_view2 = (TextView)itemView.findViewById(R.id.text_view2);
             text_view3 = (TextView)itemView.findViewById(R.id.text_view3);
             text_view4 = (TextView)itemView.findViewById(R.id.text_view4);
-           // text_view5 = (TextView)itemView.findViewById(R.id.text_view5);
+            // text_view5 = (TextView)itemView.findViewById(R.id.text_view5);
             text_view6 = (TextView)itemView.findViewById(R.id.text_view6);
             text_view7 = (TextView)itemView.findViewById(R.id.text_view7);
             text_view8 = (TextView)itemView.findViewById(R.id.text_view8);
