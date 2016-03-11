@@ -42,6 +42,7 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.FindListener;
 
 /**
@@ -70,7 +71,12 @@ public class ShoppingActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_shopping);
 
+            BmobUser bmobUser = BmobUser.getCurrentUser(ShoppingActivity.this);
+
             BmobQuery<Shoppingbean> query = new BmobQuery<Shoppingbean>();
+
+            query.addWhereEqualTo("user", bmobUser.getObjectId());
+
             //执行查询方法
             query.findObjects(this, new FindListener<Shoppingbean>() {
                 @Override
@@ -150,9 +156,12 @@ public class ShoppingActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
+
+        BmobUser bmobUser = BmobUser.getCurrentUser(ShoppingActivity.this);
+
         BmobQuery<Shoppingbean> query = new BmobQuery<Shoppingbean>();
         //查询playerName叫“比目”的数据
-        query.addWhereEqualTo("playerName", "比目");
+        query.addWhereEqualTo("user", bmobUser.getObjectId());
         //执行查询方法
         query.findObjects(this, new FindListener<Shoppingbean>() {
             @Override

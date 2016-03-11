@@ -52,12 +52,12 @@ public class ShopedAdapter extends RecyclerView.Adapter<ShopedAdapter.ShoppedTex
     //@Override
     public void onBindViewHolder(ShoppedTextViewHolder holder, int position) {
         //   DemoItem item = DemoItem.fromCursor(cursor);
-        holder.sp_view1.setText("商品:");
-        holder.sp_view12.setText("价格:");
-        holder.sp_view13.setText("购买数量:");
+        holder.sp_view1.setText("商品名称:");
+        holder.sp_view12.setText("购买数量:");
+        holder.sp_view13.setText("购买地址:");
 
         holder.sp_view15.setText(shoppingList.get(position).getGoodsname());
-        holder.sp_view16.setText(shoppingList.get(position).getGoodsnumm().toString());
+        holder.sp_view16.setText(String.valueOf(shoppingList.get(position).getGoodsnumm().intValue()));
         holder.sp_view17.setText(shoppingList.get(position).getAddress());
 
 
