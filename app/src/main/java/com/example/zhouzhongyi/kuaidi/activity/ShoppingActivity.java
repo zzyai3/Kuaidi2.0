@@ -75,6 +75,15 @@ public class ShoppingActivity extends AppCompatActivity {
             query.findObjects(this, new FindListener<Shoppingbean>() {
                 @Override
                 public void onSuccess(List<Shoppingbean> object) {
+
+                    for (Shoppingbean shoppingbean : object) {
+
+                        System.err.println("-------->" + shoppingbean);
+
+                    }
+
+
+
                     ShoppingbeanHelper.shoppingList = object;
                 }
                 @Override
@@ -94,14 +103,14 @@ public class ShoppingActivity extends AppCompatActivity {
 //        mNavigationView = (NavigationView) findViewById(R.id.navigation_view);
 //        setupDrawerContent(mNavigationView);
 
-            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();    }
-                //  }
-            });
+//            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//            fab.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                            .setAction("Action", null).show();    }
+//                //  }
+//            });
             mViewPager1=(ViewPager)findViewById(R.id.id_viewpager1);
             mTabLayout1=(TabLayout)findViewById(R.id.id_tablayout1);
 

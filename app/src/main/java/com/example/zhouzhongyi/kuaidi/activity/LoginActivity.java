@@ -78,9 +78,9 @@ public class LoginActivity extends Activity {
        et_lg_passwd=(EditText)findViewById(R.id.et_lg_passwd);
        btn_lg_regster=(Button)findViewById(R.id.btn_lg_register);
        btn_lg_login=(Button)findViewById(R.id.btn_lg_login);
-        mRadioGroup=(RadioGroup)findViewById(R.id.ttt);
-        shopbutton=(RadioButton)findViewById(R.id.shopping_button);
-        songbutton=(RadioButton)findViewById(R.id.song_button);
+//        mRadioGroup=(RadioGroup)findViewById(R.id.ttt);
+//        shopbutton=(RadioButton)findViewById(R.id.shopping_button);
+//        songbutton=(RadioButton)findViewById(R.id.song_button);
         btn_lg_login.setOnClickListener(new View.OnClickListener() {
 
                                      @Override

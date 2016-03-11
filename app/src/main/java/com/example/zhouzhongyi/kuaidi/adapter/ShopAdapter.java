@@ -65,7 +65,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopTextViewHo
 
         holder.mTextView5.setText(goodsList.get(position).getGoodsname());
         holder.mTextView6.setText(goodsList.get(position).getGoodsprice());
-        holder.mTextView7.setText(goodsList.get(position).getGoodsnum().toString());
+        holder.mTextView7.setText(String.valueOf(goodsList.get(position).getGoodsnum().intValue()));
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
