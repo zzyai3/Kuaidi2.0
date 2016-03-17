@@ -154,14 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-     //    setSupportActionBar(mToolbar);
-//        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar,R.string.drawer_open,
-//                R.string.drawer_close);
-//        mDrawerToggle.syncState();
-//        mDrawerLayout.setDrawerListener(mDrawerToggle);
-//        mNavigationView = (NavigationView) findViewById(R.id.navigation_view);
-//        setupDrawerContent(mNavigationView);
+
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -177,12 +170,11 @@ public class MainActivity extends AppCompatActivity {
                 mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
                     @Override
                     public Fragment getItem(int position) {
-                       // if (position == 0)
+
                         if (position == 1) return new Main_rb_2Fragment();
                         if (position == 2) return new Main_rb_3Fragment();
                         return new Main_rb_1Fragment();
-                       // if (position == 1)
-                       //    return new Main_rb_2Fragment();
+
 
 
                     }
@@ -202,73 +194,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //    initView();//布局中找控件
-        // initSlidingMenu();//初始化侧滑菜单
-        //初始化ViewPager
-        // init();
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
+
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
-//    private void switchToBook() {
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new BooksFragment()).commit();
-//        mToolbar.setTitle("你猜");
-//    }
-//
-//    private void switchToExample() {
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new ExampleFragment()).commit();
-//        mToolbar.setTitle("不知道");
-//    }
-//
-//    private void switchToBlog() {
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new BlogFragment()).commit();
-//        mToolbar.setTitle("有什么");
-//    }
-//
-//
-//    private void switchToAbout() {
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new AboutFragment()).commit();
-//        mToolbar.setTitle("真不知道");
-//    }
 
-
-//    private void setUpProfileImage() {
-//        findViewById(R.id.profile_image).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                switchToBlog();
-//                mDrawerLayout.closeDrawers();
-//                mNavigationView.getMenu().getItem(1).setChecked(true);
-//            }
-//        });
-//    }
-//    private void setupDrawerContent(NavigationView navigationView) {
-//        navigationView.setNavigationItemSelectedListener(
-//                new NavigationView.OnNavigationItemSelectedListener() {
-//                    @Override
-//                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-//                        switch (menuItem.getItemId()) {
-//
-//                            case R.id.navigation_item_book:
-//                                switchToBook();
-//                                break;
-//                            case R.id.navigation_item_example:
-//                                switchToExample();
-//                                break;
-//                            case R.id.navigation_item_blog:
-//                                switchToBlog();
-//                                break;
-//                            case R.id.navigation_item_about:
-//                                switchToAbout();
-//                                break;
-//
-//                        }
-//                        menuItem.setChecked(true);
-//                        mDrawerLayout.closeDrawers();
-//                        return true;
-//                    }
-//                });
-  //  }
 
     private void init() {
         //切换菜单点击事件
@@ -298,7 +227,15 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    /**
+     * 调用onCreate(), 目的是刷新数据,
+     * 从另一activity界面返回到该activity界面时, 此方法自动调用
+     */
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        onCreate(null);
+//    }
 //    @Override
 //    public void onStart() {
 //        super.onStart();
